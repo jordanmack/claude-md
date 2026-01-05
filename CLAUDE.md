@@ -50,3 +50,7 @@
 - Always include a recommended answer when asking a question.
 - Always suggest creating a specification file when planning a new project.
 - Always spawn agents to run tasks in parallel when safe and beneficial for speed.
+
+## Documentation Files
+
+- CRITICAL: Never include volatile data that changes during active development; reference how to retrieve current information from its source instead.
