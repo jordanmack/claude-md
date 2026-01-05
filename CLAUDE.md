@@ -38,6 +38,7 @@
 
 ## Tooling & Environment
 
+- CRITICAL: Never modify databases or persistent data without explicit permission.
 - Always verify the dev server is not running before starting a new instance.
 - Always use Bun instead of NPM when possible.
 - Never use killall on "node" because it will kill servers you did not start.
