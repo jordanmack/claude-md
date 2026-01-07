@@ -54,3 +54,8 @@
 ## Documentation Files
 
 - CRITICAL: Never include volatile data that changes during active development; reference how to retrieve current information from its source instead.
+
+## CKB Development
+
+- CRITICAL: Always use the CKB MCP servers as the primary source for CKB development information.
+- Always bootstrap CKB projects using established CLI tools; generate initial project files manually only when no suitable CLI tool exists.
