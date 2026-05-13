@@ -1,61 +1,78 @@
-## Problem Solving & Debugging
+# CLAUDE.md — Karpathy 12-Rule Template
 
-- CRITICAL: Always debug to find and fix the root issue when encountering problems; never use workarounds.
-- CRITICAL: Always design systems to fail fast with descriptive, context-rich error messages.
-- CRITICAL: Never make assumptions about code behavior; verify by reading the actual implementation.
-- Always treat compiler warnings like errors and fix them immediately unless directed otherwise.
-- Always verify changes work as expected before moving to the next task.
-- Always stop and reassess the strategy with the user after three failed attempts at the same approach.
-- Never use sed as a fallback when normal editing fails; diagnose and fix the editing issue directly.
+These rules apply to every task in this project unless explicitly overridden.
+Bias: caution over speed on non-trivial work. Use judgment on trivial tasks.
 
-## Code Style & Quality
+## Rule 1 — Think Before Coding
+State assumptions explicitly. If uncertain, ask rather than guess.
+Present multiple interpretations when ambiguity exists.
+Push back when a simpler approach exists.
+Stop when confused. Name what's unclear.
 
-- CRITICAL: Always change only what is necessary to achieve the goal; never rewrite working code unnecessarily.
-- CRITICAL: Always avoid premature abstractions and over-engineering; engineer at the appropriate level for the project scope, and prompt the user if unclear.
-- Always prioritize well-structured, readable code over brevity.
-- Always document why important design decisions are made in concise code comments and official documentation (if it exists).
-- Always write generated text as complete sentences with ending punctuation, or use title case for labels.
-- Always write text that is clear, concise, and direct without marketing fluff or jargon.
-- Always prefer tabs over spaces for new projects.
-- Always end text files with an empty line.
-- Always place new files in locations consistent with the existing project structure.
+## Rule 2 — Simplicity First
+Minimum code that solves the problem. Nothing speculative.
+No features beyond what was asked. No abstractions for single-use code.
+Test: would a senior engineer say this is overcomplicated? If yes, simplify.
 
-## Learning & Integration
+## Rule 3 — Surgical Changes
+Touch only what you must. Clean up only your own mess.
+Don't "improve" adjacent code, comments, or formatting.
+Don't refactor what isn't broken. Match existing style.
 
-- Always study existing code to understand conventions, patterns, and style before implementing new features so you can match them.
-- Never introduce new tools or libraries without strong justification.
+## Rule 4 — Goal-Driven Execution
+Define success criteria. Loop until verified.
+Don't follow steps. Define success and iterate.
+Strong success criteria let you loop independently.
 
-## Testing
+## Rule 5 — Use the model only for judgment calls
+Use me for: classification, drafting, summarization, extraction.
+Do NOT use me for: routing, retries, deterministic transforms.
+If code can answer, code answers.
 
-- Always prefer test-driven development when planning new features.
-- Never disable tests to make them pass; fix the underlying issue.
+## Rule 6 — Token budgets are not advisory
+Per-task: 4,000 tokens. Per-session: 30,000 tokens.
+If approaching budget, summarize and start fresh.
+Surface the breach. Do not silently overrun.
 
-## Git Workflow
+## Rule 7 — Surface conflicts, don't average them
+If two patterns contradict, pick one (more recent / more tested).
+Explain why. Flag the other for cleanup.
+Don't blend conflicting patterns.
 
-- Always make Git commits in logical groups rather than one large commit.
-- Always write Git commit messages as a concise sentence starting with a verb and ending with proper punctuation.
-- Never commit code with compilation failures, warnings, or errors.
+## Rule 8 — Read before you write
+Before adding code, read exports, immediate callers, shared utilities.
+"Looks orthogonal" is dangerous. If unsure why code is structured a way, ask.
 
-## Tooling & Environment
+## Rule 9 — Tests verify intent, not just behavior
+Tests must encode WHY behavior matters, not just WHAT it does.
+A test that can't fail when business logic changes is wrong.
 
-- CRITICAL: Never modify databases or persistent data without explicit permission.
-- Always verify the dev server is not running before starting a new instance.
-- Always use Bun instead of NPM when possible.
-- Never use killall on "node" because it will kill servers you did not start.
+## Rule 10 — Checkpoint after every significant step
+Summarize what was done, what's verified, what's left.
+Don't continue from a state you can't describe back.
+If you lose track, stop and restate.
 
-## Planning & Communication
+## Rule 11 — Match the codebase's conventions, even if you disagree
+Conformance > taste inside the codebase.
+If you genuinely think a convention is harmful, surface it. Don't fork silently.
 
-- CRITICAL: Always research and plan thoroughly until 99% confidence before presenting plans, recommendations, or starting integration.
-- CRITICAL: Always provide a concise plan summary with questions, concerns, and recommendations, then wait for confirmation before implementing.
-- Always include a recommended answer when asking a question.
-- Always suggest creating a specification file when planning a new project.
-- Always spawn agents to run tasks in parallel when safe and beneficial for speed.
+## Rule 12 — Fail loud
+"Completed" is wrong if anything was skipped silently.
+"Tests pass" is wrong if any were skipped.
+Default to surfacing uncertainty, not hiding it.
 
-## Documentation Files
+## Additional Operating Rules
 
-- CRITICAL: Never include volatile data that changes during active development; reference how to retrieve current information from its source instead.
+- Do not modify databases, production services, or persistent data without explicit permission.
+- Wrap approved multi-step database operations in a transaction.
+- Never commit secrets, credentials, API keys, private tokens, or local environment files.
+- Treat compiler warnings as blockers unless explicitly told otherwise.
+- Before starting a dev server, check whether one is already running.
+- Stop only processes you started or have explicitly identified; do not use `killall`.
+- Do not put volatile facts in documentation; reference the source of truth instead.
+- When asked to commit, make logical commits with concise imperative messages.
 
 ## CKB Development
 
-- CRITICAL: Always use the CKB MCP servers as the primary source for CKB development information.
+- IMPORTANT: Always use the CKB MCP servers as the primary source for CKB development information.
 - Always bootstrap CKB projects using established CLI tools; generate initial project files manually only when no suitable CLI tool exists.
