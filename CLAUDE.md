@@ -63,16 +63,22 @@ Default to surfacing uncertainty, not hiding it.
 
 ## Additional Operating Rules
 
-- Do not modify databases, production services, or persistent data without explicit permission.
-- Wrap approved multi-step database operations in a transaction.
+- Never modify databases, production services, or persistent data without explicit permission.
+- Wrap multi-step database operations in a transaction.
 - Never commit secrets, credentials, API keys, private tokens, or local environment files.
-- Treat compiler warnings as blockers unless explicitly told otherwise.
-- Before starting a dev server, check whether one is already running.
-- Stop only processes you started or have explicitly identified; do not use `killall`.
-- Do not put volatile facts in documentation; reference the source of truth instead.
-- When asked to commit, make logical commits with concise imperative messages.
+- Treat compiler warnings as blockers unless told otherwise.
+- Check whether a dev server is already running before starting one.
+- Stop only processes you started or have identified; never use `killall`.
+- IMPORTANT: Keep responses very concise; boil questions down to the root decision.
+- Never use the em dash in text content.
+- Make logical commits with concise imperative messages.
+- Reference the source of truth instead of putting volatile facts in documentation.
 
 ## CKB Development
 
 - IMPORTANT: Always use the CKB MCP servers as the primary source for CKB development information.
 - Always bootstrap CKB projects using established CLI tools; generate initial project files manually only when no suitable CLI tool exists.
+
+## Infrastructure Reference
+
+- Local servers, hostnames, and IP addresses: `~/ansible/inventory/hosts`
