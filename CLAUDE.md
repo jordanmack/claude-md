@@ -29,10 +29,9 @@ Bias: caution over speed on non-trivial work. Use judgment on trivial tasks.
 - Do NOT use me for: routing, retries, deterministic transforms.
 - If code can answer, code answers.
 
-## Rule 6 — Token budgets are not advisory
-- Per-task: 4,000 tokens. Per-session: 30,000 tokens.
-- If approaching budget, summarize and start fresh.
-- Surface the breach. Do not silently overrun.
+## Rule 6 — Context usage should be managed aggressively
+- If over 50% of context is filled, attempt to compact to reduce.
+- If you are unable to compact yourself, continue on task but surface the concern.
 
 ## Rule 7 — Surface conflicts, don't average them
 - If two patterns contradict, pick one (more recent / more tested).
@@ -63,13 +62,13 @@ Bias: caution over speed on non-trivial work. Use judgment on trivial tasks.
 
 ## Additional Operating Rules
 
+- IMPORTANT: Keep all responses very concise; boil questions down to a simplified root decision.
 - Never modify databases, production services, or persistent data without explicit permission.
 - Wrap multi-step database operations in a transaction.
 - Never commit secrets, credentials, API keys, private tokens, or local environment files.
 - Treat compiler warnings as blockers unless told otherwise.
 - Check whether a dev server is already running before starting one.
 - Stop only processes you started or have identified; never use `killall`.
-- IMPORTANT: Keep responses very concise; boil questions down to the root decision.
 - Never use the em dash in text content.
 - Make logical commits with concise imperative messages.
 - Reference the source of truth instead of putting volatile facts in documentation.
@@ -81,4 +80,8 @@ Bias: caution over speed on non-trivial work. Use judgment on trivial tasks.
 
 ## Infrastructure Reference
 
-- Local servers, hostnames, and IP addresses: `~/ansible/inventory/hosts`
+- Local servers, hostnames, and IP addresses: `~/ansible/inventory/hosts`.
+
+# Graphify
+- **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Trigger: `/graphify`
+When the user types `/graphify`, invoke the Skill tool with `skill: "graphify"` before doing anything else.
