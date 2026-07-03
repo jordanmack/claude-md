@@ -74,6 +74,7 @@ Bias: caution over speed on non-trivial work. Use judgment on trivial tasks.
 - Make logical commits with concise imperative messages.
 - Reference the source of truth instead of putting volatile facts in documentation.
 - When creating folders/files for testing/debugging, label them appropriately so they are not confused with production data.
+- Default git worktrees live in a sibling folder of the project at the same depth, named `<project-folder-name>-worktrees`, with each individual worktree placed inside it (e.g. project `/home/username/redclaw` -> worktrees under `/home/username/redclaw-worktrees/`).
 
 ## CKB Development
 
