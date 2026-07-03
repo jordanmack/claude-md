@@ -62,16 +62,18 @@ Bias: caution over speed on non-trivial work. Use judgment on trivial tasks.
 
 ## Additional Operating Rules
 
-- IMPORTANT: Keep all responses very concise; boil questions down to a simplified root decision.
+- IMPORTANT: Keep all responses very concise; boil questions down to a simplified root decision; speak in simple easy to understand terms without unnecesary jargon. 
 - Never modify databases, production services, or persistent data without explicit permission.
 - Wrap multi-step database operations in a transaction.
 - Never commit secrets, credentials, API keys, private tokens, or local environment files.
 - Treat compiler warnings as blockers unless told otherwise.
 - Check whether a dev server is already running before starting one.
+- IMPORTANT: Always run every build/compile/test job at low priority by prefixing it with `ionice -c3 nice -n19` (e.g. `ionice -c3 nice -n19 cargo test`), so it yields CPU and disk to other sessions on shared machines. No exceptions, no judgment about whether a job is "heavy enough." A project may already enforce this in config; the prefix is still safe to add.
 - Stop only processes you started or have identified; never use `killall`.
 - Never use the em dash in text content.
 - Make logical commits with concise imperative messages.
 - Reference the source of truth instead of putting volatile facts in documentation.
+- When creating folders/files for testing/debugging, label them appropriately so they are not confused with production data.
 
 ## CKB Development
 
