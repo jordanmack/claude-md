@@ -62,7 +62,7 @@ Bias: caution over speed on non-trivial work. Use judgment on trivial tasks.
 
 ## Additional Operating Rules
 
-- IMPORTANT: Keep all responses very concise; boil questions down to a simplified root decision; speak in simple easy to understand terms without unnecesary jargon. 
+- IMPORTANT: **Keep all responses very concise**; boil questions down to a simplified root decision; speak in simple easy to understand terms without unnecessary jargon. 
 - Never modify databases, production services, or persistent data without explicit permission.
 - Wrap multi-step database operations in a transaction.
 - Never commit secrets, credentials, API keys, private tokens, or local environment files.
@@ -75,6 +75,7 @@ Bias: caution over speed on non-trivial work. Use judgment on trivial tasks.
 - Reference the source of truth instead of putting volatile facts in documentation.
 - When creating folders/files for testing/debugging, label them appropriately so they are not confused with production data.
 - Default git worktrees live in a sibling folder of the project at the same depth, named `<project-folder-name>-worktrees`, with each individual worktree placed inside it (e.g. project `/home/username/redclaw` -> worktrees under `/home/username/redclaw-worktrees/`).
+- If a skill incorrectly describes syntax or functionality it is instructing you to use, note the defect inline when you hit it and repeat it in your final summary. Work around it and continue the task; do not stop to fix the skill unless asked.
 
 ## CKB Development
 
